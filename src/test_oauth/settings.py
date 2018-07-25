@@ -49,6 +49,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'social_auth.backends.contrib.vk.VKOAuth2Backend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 ROOT_URLCONF = 'test_oauth.urls'
 
 TEMPLATES = [
