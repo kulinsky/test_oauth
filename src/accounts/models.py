@@ -25,14 +25,7 @@ class UserProfile(models.Model):
     def friends(self):
         return json.loads(self._friends) if self._friends else None
 
-    @property
-    def full_name(self):
-        return '{}{}'.format(self.last_name, self.first_name)
-
-
-
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.get_or_create(user=instance)
 post_save.connect(create_user_profile, sender=User)
-
